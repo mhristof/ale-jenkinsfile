@@ -19,7 +19,7 @@ curl -sL https://raw.githubusercontent.com/mhristof/ale-jenkinsfile/master/ale_j
 
 ## Special thanks
 
-creating the jenkins container - https://technologyconversations.com/2017/06/16/automating-jenkins-docker-setup/
-linting jenkinsfiles - https://jenkins.io/doc/book/pipeline/development/#linter
-where to place a custom ALE linter file - https://github.com/dense-analysis/ale/issues/1405#issuecomment-371119938
-how do i define a custom ALE linter - https://github.com/dense-analysis/ale/issues/391
+* creating the jenkins container - https://technologyconversations.com/2017/06/16/automating-jenkins-docker-setup/
+* linting jenkinsfiles - https://jenkins.io/doc/book/pipeline/development/#linter
+* where to place a custom ALE linter file - https://github.com/dense-analysis/ale/issues/1405#issuecomment-371119938
+* how do i define a custom ALE linter - https://github.com/dense-analysis/ale/issues/391
