@@ -1,7 +1,12 @@
 function! JenkinsfileCommand(buffer) abort
-    return 'curl -X POST -F "jenkinsfile=<'
-    \   . bufname(a:buffer)
-    \ . '" localhost:8080/pipeline-model-converter/validate'
+    let l:image = 'mhristof/jenkins'
+    let l:docker = "vim-ale-jenkinsfile"
+    let l:port = '28080'
+    return '('
+    \ . 'docker inspect ' . l:docker . ' || docker run --rm --detach -p ' . l:port . ':8080 --name ' . l:docker . ' ' . l:image . ') &>/dev/null && '
+    \ . 'curl -X POST -F "jenkinsfile=<'
+    \ . bufname(a:buffer)
+    \ . '" localhost:' . l:port . '/pipeline-model-converter/validate'
 endfunction
 
 
@@ -11,8 +16,6 @@ function! Jenkinsfile(buffer, lines) abort
     let l:pattern = '^\vWorkflowScript:\s*(\d*):\s*(.*)\s*\@\s*line (\d*),\s*column (\d*)\.$'
     let l:output = []
 
-    "echo a:lines
-    "echo ale#util#GetMatches(a:lines, l:pattern)
     for l:match in ale#util#GetMatches(a:lines, l:pattern)
         let l:item = {
         \   'lnum': l:match[3] + 0,
