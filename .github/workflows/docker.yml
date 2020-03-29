@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-		‐ name: build-push
-			uses: docker/build-push-action@v1
-			with:
-				username: ${{ DOCKER_USERNAME }}
-				password: ${{ DOCKER_PASSWORD }}
-				registry: hub.docker.com
-				repository: mhristof/jenkins
-				tags: latest
+    ‐ name: build-push
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ DOCKER_USERNAME }}
+        password: ${{ DOCKER_PASSWORD }}
+        registry: hub.docker.com
+        repository: mhristof/jenkins
+        tags: latest
