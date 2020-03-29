@@ -1,0 +1,11 @@
+name: test
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - run: docker build -t ${GITHUB_REPOSITORY}:${GITHUB_SHA} .
+    - run: docker run --detach -p 8080:8080 ${GITHUB_REPOSITORY}:${GITHUB_SHA} | tee .id
+    - run: tests/jenkinsfile.sh

@@ -1,3 +1,4 @@
+# https://technologyconversations.com/2017/06/16/automating-jenkins-docker-setup/
 FROM jenkins/jenkins:lts-alpine
 
 ENV JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
